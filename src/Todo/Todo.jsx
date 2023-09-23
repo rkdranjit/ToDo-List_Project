@@ -1,5 +1,4 @@
 import { useState } from "react";
-import  './Todo.css';
 
 function Todo({finishTodo,editTodo,deleteTodo,text,isFinished}){
 
