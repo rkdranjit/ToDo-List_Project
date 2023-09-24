@@ -1,10 +1,10 @@
-import { useContext } from "react";
 import Todo from "../Todo/Todo";
-import TodoContext from "../context/TodoContext";
+import { useDispatch, useSelector } from "react-redux";
 
 function TodoList() {
 
-  const {todos,dispatch} = useContext(TodoContext);
+  const dispatch = useDispatch(); // it will access the dispatch method of store
+  const  todos = useSelector(state => state.todos); //where state is given as an argument where state.todos todos entity from our state
 
   function onDeleteTodo(id){
     dispatch({type : 'delete_todo' , payload : {id}})

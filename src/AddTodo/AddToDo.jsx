@@ -1,9 +1,8 @@
-import { useContext, useState } from "react";
-import TodoContext from "../context/TodoContext";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 function AddToDo(){
-    const {dispatch} = useContext(TodoContext)
-
+    const dispatch =useDispatch(); //it will automatically detect what is the store and every application maintaining one store
     const [todoText,setTodoText] = useState('');
 
     function addTodo(todoText){

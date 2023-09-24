@@ -1,19 +1,17 @@
-import { useReducer } from 'react';
 import AddToDo from './AddTodo/AddToDo';
 import './App.css'
 import TodoList from './TodoList/TodoList';
-import TodoContext from './context/TodoContext';
-import TodoReducer from './reducers/TodoReducer';
+import { Provider } from 'react-redux';
+import store from './store';
 
 function App() {
 
-  const [todos,dispatch] = useReducer(TodoReducer,[]);
   return (
     <>
-    <TodoContext.Provider value={{todos,dispatch}}> {/*in order to trigger an action we use dispatch */}   
-      <AddToDo />
-      <TodoList />
-    </TodoContext.Provider>
+    <Provider store={store}>
+        <AddToDo />
+        <TodoList />
+    </Provider>
    </>
   )
 }
